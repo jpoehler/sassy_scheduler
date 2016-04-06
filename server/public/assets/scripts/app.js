@@ -1,4 +1,4 @@
-var myApp = angular.module('myApp', []);
+var myApp = angular.module('myApp', ['ngRoute']);
 
 myApp.controller('UserController', ['$scope', '$http', '$window', function($scope, $http, $window) {
     $scope.userName;
@@ -14,3 +14,8 @@ myApp.controller('UserController', ['$scope', '$http', '$window', function($scop
         }
     });
 }]);
+
+angular.module('datepicker',
+    ['ngMaterial', 'ngMessages']).controller('AppCtrl', function($scope) {
+  $scope.myDate = new Date();
+});

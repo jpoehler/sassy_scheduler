@@ -1,11 +1,3 @@
-/*
-CREATE TABLE users (
- id SERIAL PRIMARY KEY,
- username VARCHAR(100) NOT NULL UNIQUE,
- password VARCHAR(120) NOT NULL
-);
-*/
-
 var passport = require('passport');
 var localStrategy = require('passport-local');
 var encryptLib = require('../modules/encryption');
@@ -49,21 +41,17 @@ passport.use('local', new localStrategy({
     usernameField: 'username'
     }, function(req, username, password, done){
 	    pg.connect(connection, function (err, client) {
-	    	console.log('called local - pg');
 	    	var user = {};
         var query = client.query("SELECT * FROM users WHERE username = $1", [username]);
 
         query.on('row', function (row) {
-        	console.log('User obj', row);
         	user = row;
 
           // Hash and compare
           if(encryptLib.comparePassword(password, user.password)) {
             // all good!
-            console.log('matched');
             done(null, user);
           } else {
-            console.log('nope');
             done(null, false, {message: 'Your user name or password is incorrect.'});
           }
 

@@ -2,7 +2,7 @@
 <html ng-app="myApp">
   <head>
     <meta charset="utf-8">
-    <title>Sassy Pants Forever!</title>
+    <title>Sassy Adventures!</title>
 
     <link rel="stylesheet" href="/assets/styles/style.css">
 
@@ -11,7 +11,15 @@
 </head>
 <body>
 
-    <h1 id="welcome" class="lead">Welcome, {{userName}}!</h1>
+    <h1 id="welcome" class="lead">Welcome, {{req.body.username}}!</h1>
+
+    <div class="events" ng-repeat"object in info.results">
+      <p>Date: {{ object.date }}</p>
+      <p>Time: {{ object.time }}</p>
+      <p>Origin: {{ object.origin }}</p>
+      <p>Destination: {{ object.destination }}</p>
+    </div>
+
 
 </body>
 </html>

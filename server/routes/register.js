@@ -1,7 +1,6 @@
 var express = require('express');
 var router = express.Router();
 var passport = require('passport');
-// var Users = require('../models/user');
 var path = require('path');
 
 // module with bcrypt functions
@@ -19,13 +18,16 @@ router.post('/', function(req, res, next) {
 
   var saveUser = {
     username: req.body.username,
-    password: encryptLib.encryptPassword(req.body.password)
+    password: encryptLib.encryptPassword(req.body.password),
+    firstname: req.body.firstname,
+    lastname: req.body.lastname,
+    email: req.body.email
   };
   console.log('new user:', saveUser);
 
   pg.connect(connection, function(err, client, done) {
-    client.query("INSERT INTO users (username, password) VALUES ($1, $2) RETURNING id",
-      [saveUser.username, saveUser.password],
+    client.query("INSERT INTO users (username, password, firstname, lastname, email) VALUES ($1, $2, $3, $4, $5) RETURNING id",
+      [saveUser.username, saveUser.password, saveUser.firstname, saveUser.lastname, saveUser.email],
         function (err, result) {
           client.end();
 

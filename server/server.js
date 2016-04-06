@@ -4,13 +4,13 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var path = require('path');
 
-var passport = require('passport');
+var passport = require('./strategies/user.js');
 var session = require('express-session');
-var localStrategy = require('passport-local');
 
 var index = require('./routes/index');
 var user = require('./routes/user');
 var register = require('./routes/register');
+var events = require('./routes/events');
 
 app.use(cookieParser());
 app.use(bodyParser.json());
@@ -28,6 +28,7 @@ app.use(session({
 
 app.use('/register', register);
 app.use('/user', user);
+app.use('/events', events);
 app.use('/', index);
 
 app.set('port', (process.env.PORT || 5000));
