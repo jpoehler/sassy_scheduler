@@ -1,6 +1,6 @@
 myApp.factory('EventService', ['$http', function($http){
      var data = {};
-    };
+
 
     var postEvent = function(data){
       $http.post('/events', data).then(function(response){
@@ -18,15 +18,15 @@ myApp.factory('EventService', ['$http', function($http){
 
     return {
         //public
-        postEvents : postEvents,
-        getEvents : getEvents;
+        postEvents : postEvent,
+        getEvent : getEvent,
         data : data
     };
 }]);
 
 myApp.factory('UserService', ['$http', function($http){
      var data = {};
-    };
+
 
     var postUser = function(data){
       $http.post('/user', data).then(function(response){
@@ -45,7 +45,7 @@ myApp.factory('UserService', ['$http', function($http){
     return {
         //public
         postUser : postUser,
-        getUser : getUser;
+        getUser : getUser,
         data : data
     };
 }]);

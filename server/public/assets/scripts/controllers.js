@@ -1,4 +1,4 @@
-myApp.controller('UserController', ['$scope', '$http', 'UserService', function($scope, $http, EventService) {
+myApp.controller('UserController', ['$scope', '$http', 'UserService', function($scope, $http, UserService) {
   var userObject = {};
   var userService = UserService;
 
@@ -10,7 +10,7 @@ myApp.controller('UserController', ['$scope', '$http', 'UserService', function($
 myApp.controller('EventController', ['$scope', 'EventService', function($scope, EventService){
    var eventService = EventService;
 
-   eventService.getData();
+   eventService.getEvent();
    $scope.data = eventService.data;
 
    $scope.showId = function(object){

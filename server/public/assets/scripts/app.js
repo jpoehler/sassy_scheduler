@@ -1,7 +1,13 @@
-var myApp = angular.module('myApp', ['ngRoute', 'ngMaterial']);
+var myApp = angular.module('myApp', ['ngRoute']);
+console.log("Whee!");
 
 myApp.config(['$routeProvider', function($routeProvider){
-    $routeProvider.
+  console.log("I'm in routeProvider");
+$routeProvider.
+        when('/index', {
+        templateUrl: 'views/index.html',
+        controller: 'UserController'
+        }).
         when('/user', {
             templateUrl: '/views/routes/user.html',
             controller: 'UserController'
@@ -15,6 +21,6 @@ myApp.config(['$routeProvider', function($routeProvider){
              controller: 'UserController'
         }).
         otherwise({
-            redirectTo: 'user'
+            redirectTo: '/user'
         });
 }]);

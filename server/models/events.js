@@ -32,7 +32,7 @@ router.post('/events', function(req, res, next){
 
 // Handles request for HTML file
 router.get('/', function(req, res, next) {
-    res.sendFile(path.resolve(__dirname, '../public/views/events.html'));
+    res.sendFile(path.resolve(__dirname, '../public/views/routes/events.html'));
 });
 
 // Handles POST request with new user data

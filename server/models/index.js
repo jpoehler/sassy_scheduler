@@ -12,6 +12,7 @@ router.post('/',
 );
 
 router.get('/*', function(req,res,next){
+  console.log(req.params);
     var file = req.params[0] || '/views/index.html';
     res.sendFile(path.join(__dirname, "../public", file));
 });

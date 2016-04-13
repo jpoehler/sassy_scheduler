@@ -2,10 +2,10 @@
 <div ng-controller="EventController">
 
 
-    <h1 id="welcome" class="lead">Welcome, </h1>
+    <h1 id="welcome" class="lead">Welcome, {{ req.body.username }}!</h1>
     <a href="/views/routes/events.html">Schedule an adventure!</a>
 
-    <div class="events" ng-repeat"object in data.results">
+    <div class="events" ng-repeat"object in data.response">
        <p>Date: {{ object.date }}</p>
        <p>Time: {{ object.time }}</p>
        <p>Origin: {{ object.origin }}</p>
