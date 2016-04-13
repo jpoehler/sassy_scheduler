@@ -1,0 +1,27 @@
+    <p>
+      Schedule an adventure!
+    </p>
+
+<div ng-app="datepicker" ng-controller="UserController">
+    <form action="/events" method="post">
+      <md-content>
+        <label for="date">Date:</label>
+        <input type="text" name="date" id="date" />
+        <md-calendar ng-model="myDate" md-placeholder="Enter date"></md-calendar>
+
+    <label for="time">Time:</label>
+    <input type="text" name="time" id="time" />
+
+    <label for="origin">Origin:</label>
+    <input type="text" name="origin" id="origin" />
+
+    <label for="destination">Destination:</label>
+    <input type="text" name="destination" id="destination" />
+
+    <input type="submit" value="Create Adventure" />
+
+    </form>
+  </md-content>
+</div>
+  </body>
+</html>

@@ -7,10 +7,12 @@ var path = require('path');
 var passport = require('./strategies/user.js');
 var session = require('express-session');
 
-var index = require('./routes/index');
-var user = require('./routes/user');
-var register = require('./routes/register');
-var events = require('./routes/events');
+var index = require('./models/index');
+var user = require('./models/user');
+var register = require('./models/register');
+var events = require('./models/events');
+
+
 
 app.use(cookieParser());
 app.use(bodyParser.json());

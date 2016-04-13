@@ -1,21 +1,20 @@
-var myApp = angular.module('myApp', ['ngRoute']);
+var myApp = angular.module('myApp', ['ngRoute', 'ngMaterial']);
 
-myApp.controller('UserController', ['$scope', '$http', '$window', function($scope, $http, $window) {
-    $scope.userName;
-
-    // This happens after page load, which means it has authenticated if it was ever going to
-    // NOT SECURE
-    $http.get('/user').then(function(response) {
-        if(response.data) {
-            $scope.userName = response.data.username;
-            console.log('User Data: ', $scope.userName);
-        } else {
-            $window.location.href = '/index.html';
-        }
-    });
+myApp.config(['$routeProvider', function($routeProvider){
+    $routeProvider.
+        when('/user', {
+            templateUrl: '/views/routes/user.html',
+            controller: 'UserController'
+        }).
+        when('/events', {
+            templateUrl: '/views/routes/events.html',
+            controller: 'EventController'
+        }).
+        when('/register', {
+             templateUrl: 'views/routes/register.html',
+             controller: 'UserController'
+        }).
+        otherwise({
+            redirectTo: 'user'
+        });
 }]);
-
-angular.module('datepicker',
-    ['ngMaterial', 'ngMessages']).controller('AppCtrl', function($scope) {
-  $scope.myDate = new Date();
-});

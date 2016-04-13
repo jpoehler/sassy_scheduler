@@ -4,15 +4,29 @@
     <meta charset="utf-8">
     <title>Sassy Pants Forever!</title>
 
-    <link rel="stylesheet" href="/assets/styles/style.css">
+    <link rel="stylesheet" href="/vendors/angular-material.min.css" />
+    <link rel="stylesheet" href="/assets/styles/style.css" />
 
     <script type="text/javascript" src="/vendors/angular.min.js"></script>
+    <script type="text/javascript" scr="/vendors/angular-animate.min.js"></script>
+    <script type="text/javascript" scr="/vendors/angular-messages.min.js"></script>
+    <script type="text/javascript" scr="/vendors/angular-aria.min.js"></script>
+    <script type="text/javascript" scr="/vendors/angular-material.min.js"></script>
+    <script type="text/javascript" scr="/vendors/angular-route.min.js"></script>
     <script type="text/javascript" src="/assets/scripts/app.js"></script>
 
   </head>
   <body>
-    Welcome, Sassy!
+    <ng-include src="'/assets/views/routes/header.html'"></ng-include>
+    <ng-include src="'/assets/views/routes/nav.html'"></ng-include>
 
+    <main ng-view>
+
+
+    <br />
+    Welcome, Sassy!
+    <br />
+    <br />
     <div class="loginForm">
       <form action="/" method="post">
         <label for="username">User Name:</label>
@@ -22,10 +36,12 @@
         <input type="password" name="password" id="password" />
 
         <input type="submit" value="Log In" />
-        <a href="/register">Register</a>
+        <a href="./views/routes/register.html">Register</a>
       </form>
     </div>
-
+    <br />
     <img src="/assets/images/sassy_pants.jpg" alt="Sassy Pants" style="width:414px;height:320px;" />
+    </main>
+    <ng-include src="'/assets/views/routes/footer.html'"></ng-include> 
   </body>
 </html>

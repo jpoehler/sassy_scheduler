@@ -5,6 +5,7 @@ var router = express.Router();
 var pg = require('pg');
 
 var connectionString = '';
+
 if(process.env.DATABASE_URL != undefined){
   connectionString = process.env.DATABASE_URL + 'ssl';
 } else {
@@ -23,9 +24,41 @@ router.post('/events', function(req, res, next){
                                 'date varchar(25) NOT NULL,' +
                                 'time varchar(25) NOT NULL,' +
                                 'origin varchar(255) NOT NULL,' +
-                                'destination varchar(255) NOT NULL,' +
-                                'CONSTRAINT users_pkey PRIMARY KEY (id))');
+                                'destination varchar(255) NOT NULL,');
     }
+  });
+
+});
+
+// Handles request for HTML file
+router.get('/', function(req, res, next) {
+    res.sendFile(path.resolve(__dirname, '../public/views/events.html'));
+});
+
+// Handles POST request with new user data
+router.post('/', function(req, res, next) {
+
+  var saveEvent = {
+    date: req.body.date,
+    time: req.body.time,
+    origin: req.body.origin,
+    destination: req.body.destination
+  };
+  console.log('new event:', saveEvent);
+
+  pg.connect(connectionString, function(err, client, done) {
+    client.query("INSERT INTO events (date, time, origin, destination) VALUES ($1, $2, $3, $4) RETURNING id",
+      [saveEvent.date, saveEvent.time, saveEvent.origin, saveEvent.destination],
+        function (err, result) {
+          client.end();
+
+          if(err) {
+            console.log("Error inserting data: ", err);
+            next(err);
+          } else {
+            res.redirect('../views/routes/user.html');
+          }
+        });
   });
 
 });

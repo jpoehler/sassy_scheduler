@@ -6,7 +6,7 @@ var path = require('path');
 // Handles login form POST from index.html
 router.post('/',
     passport.authenticate('local', {
-        successRedirect: '/views/user.html',
+        successRedirect: '/views/routes/user.html',
         failureRedirect: '/views/index.html'
     })
 );
