@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="myApp">
+<html >
   <head>
     <meta charset="utf-8">
     <title>Sassy Pants Forever!</title>
@@ -12,15 +12,17 @@
 
     <script type="text/javascript" src="/assets/scripts/app.js"></script>
     <script type="text/javascript" src="/assets/scripts/controllers.js"></script>
-    <script type="text/javascript" src="/assets/scripts/factories.js"></script>
+
 
   </head>
   <body>
     <ng-include src="'/views/partials/header.html'"></ng-include>
     <ng-include src="'/views/partials/nav.html'"></ng-include>
 
-    <main ng-view>
-
+    <!-- <main ng-view> -->
+<h1>Sassy Pants Bicycle Riding Collective</h1>
+<br />
+<br />
     <div class="loginForm">
       <form action="/" method="post">
         <label for="username">User Name: </label>
@@ -29,13 +31,16 @@
         <label for="password">Password:</label>
         <input type="password" name="password" id="password" />
 
+        <br />
+        <br />
+
         <input type="submit" value="Log In" />
-        <a href="./views/routes/register.html">Register</a>
+        <button class="register" a href="./views/userpage.html#/register">Register</a>
       </form>
     </div>
     <br />
     <img src="/assets/images/sassy_pants.jpg" alt="Sassy Pants" style="width:414px;height:320px;" />
-    </main>
+    <!-- </main> -->
     <ng-include src="'/views/partials/footer.html'"></ng-include>
   </body>
 </html>

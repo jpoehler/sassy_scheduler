@@ -12,8 +12,6 @@ var user = require('./models/user');
 var register = require('./models/register');
 var events = require('./models/events');
 
-
-
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
