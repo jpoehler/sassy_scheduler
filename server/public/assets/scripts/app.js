@@ -10,7 +10,8 @@ myApp.config(['$routeProvider', function($routeProvider){
         // }).
         when('/user', {
             templateUrl: '../views/routes/user.html',
-            controller: 'UserController'
+            controller: 'UserController',
+            controller: 'EventController'
         }).
         when('/events', {
             templateUrl: '../views/routes/events.html',

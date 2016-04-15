@@ -2,15 +2,15 @@ myApp.factory('UserService', ['$http', function($http){
      var info = {};
 
 
-    var postUser = function(data){
-      $http.post('/user', data).then(function(response){
-        console.log('Made it to the post user in the factory', data);
+    var postUser = function(info){
+      $http.post('/user', info).then(function(response){
+        console.log('Made it to the post user in the factory', info);
         getEvents();
       });
     };
 
     var getUser = function(){
-      $http.get('/user').then(function(response){
+      $http.get('/user', info).then(function(response){
         console.log('Got some users from the factory');
         info.response = response.data
       });
@@ -27,17 +27,19 @@ myApp.factory('UserService', ['$http', function($http){
 myApp.factory('EventService', ['$http', function($http){
      var info = {};
 
-    var postEvent = function(data){
-      $http.post('/events', data).then(function(response){
-        console.log('Made it to the post event in the factory', data);
-        getEvents();
+    var postEvent = function(info){
+      $http.post('/events', info).then(function(response){
+        console.log('Made it to the post event in the factory', info);
+        getEvent();
       });
     };
 
     var getEvent = function(){
-      $http.get('/events').then(function(response){
-        console.log('Got some events from the factory', data);
-        info.response = response.data
+      console.log("GET EVENT FIRED!");
+      $http.get('/user/events').then(function(response){
+        console.log('Got some events from the factory(info)', info);
+        info.response = response.data;
+        console.log('response.data', response.data);
       });
     };
 

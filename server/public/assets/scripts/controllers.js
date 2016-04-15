@@ -5,16 +5,24 @@ myApp.controller('UserController', ['$scope', '$http', 'UserService', function($
   $scope.submit = function(data){
     userService.postData(data);
   };
+
+  userService.getUser();
+  $scope.info = userService.info;
+
 }]);
 
 myApp.controller('EventController', ['$scope', 'EventService', function($scope, EventService){
    var eventObject = {};
    var eventService = EventService;
 
-   eventService.getEvent();
-   $scope.data = eventService.data;
    $scope.myDate = new Date();
 
+   $scope.submit = function(data){
+     eventService.postEvent(data);
+   };
+
+   eventService.getEvent();
+   $scope.info = eventService.info;
 
    $scope.showId = function(object){
      console.log(object.id);

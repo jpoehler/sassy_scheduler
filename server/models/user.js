@@ -59,14 +59,16 @@ router.get('/events', function(req, res) {
     } else {
       var result = [];
 
-      var query = client.query('SELECT * FROM events ORDER BY id DESC;');
-
+      var query = client.query('SELECT * FROM events ORDER BY id DESC');
+      console.log( "query: ", query );
       query.on('row', function(row){
+        console.log( "pushing row into result: ", row );
         result.push(row);
       });
 
       query.on('end', function() {
         done();
+        console.log( "returning result: ", result );
         return res.json(result);
       });
 

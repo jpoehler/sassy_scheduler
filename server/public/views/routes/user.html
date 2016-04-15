@@ -1,10 +1,14 @@
 
-    <h1 id="welcome" class="lead">Welcome, {{ req.body.username }}!</h1>
+<div layout="row" flex="100" layout-margin="10" layout-padding="10">
 
-    <div class="events" ng-repeat"object in info.EventService">
+
+    <h1 id="welcome" class="lead">Welcome, {{ response.data.username }}!</h1>
+<br />
+    <div class="events" ng-repeat"object in info.results">
        <p>Date: {{ object.date }}</p>
        <p>Time: {{ object.time }}</p>
        <p>Origin: {{ object.origin }}</p>
        <p>Destination: {{ object.destination }}</p>
+</div>
 </div>
 </div>

@@ -56,7 +56,7 @@ router.post('/', function(req, res, next) {
             console.log("Error inserting data: ", err);
             next(err);
           } else {
-            res.redirect('../views/routes/user.html');
+            res.redirect('../views/userpage.html#/user');
           }
         });
   });
