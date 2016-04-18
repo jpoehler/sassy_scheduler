@@ -44,7 +44,6 @@ router.get('/', function(req, res) {
 });
 
 router.get('/events', function(req, res) {
-  console.log('body: ', req.body);
   var date = req.body.date;
   var time = req.body.time;
   var origin = req.body.origin;
@@ -59,16 +58,13 @@ router.get('/events', function(req, res) {
     } else {
       var result = [];
 
-      var query = client.query('SELECT * FROM events ORDER BY id DESC');
-      console.log( "query: ", query );
+      var query = client.query('SELECT * FROM events ORDER BY date ASC');
       query.on('row', function(row){
-        console.log( "pushing row into result: ", row );
         result.push(row);
       });
 
       query.on('end', function() {
         done();
-        console.log( "returning result: ", result );
         return res.json(result);
       });
 
@@ -82,10 +78,9 @@ router.get('/events', function(req, res) {
 });
 
 router.get('/*', function(req, res){
-var filename = req.params[0] || 'views/index.html';
+var filename = req.params[0] || 'views/userpage.html';
 res.sendFile(path.join(__dirname, '../public/', filename));
 
 });
-
 
 module.exports = router;

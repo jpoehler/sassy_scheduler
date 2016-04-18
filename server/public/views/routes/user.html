@@ -1,14 +1,21 @@
+<html ng-app="myApp">
 
-<div layout="row" flex="100" layout-margin="10" layout-padding="10">
+<div ng-controller="EventController">
+<div layout="row" layout-margin="10" layout-padding="10">
 
+      <h1 id="welcome" class="lead">Welcome, SassyPants!</h1>
 
-    <h1 id="welcome" class="lead">Welcome, {{ response.data.username }}!</h1>
-<br />
-    <div class="events" ng-repeat"object in info.results">
-       <p>Date: {{ object.date }}</p>
-       <p>Time: {{ object.time }}</p>
-       <p>Origin: {{ object.origin }}</p>
-       <p>Destination: {{ object.destination }}</p>
+      <md-list>
+      <md-list-item class="md-4-line" ng-repeat="event in eventInfo.response">
+        <div class="md-list-item-text">
+          <p>Date: {{ event.date }}</p>
+          <p>Time: {{ event.time }}</p>
+          <p>Origin: {{ event.origin }}</p>
+          <p>Destination: {{ event.destination }}</p>
+        </div>
+        <md-divider ng-if="!$last"></md-divider>
+      </md-list-item>
+
 </div>
 </div>
 </div>

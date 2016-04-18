@@ -1,25 +1,37 @@
-    <p>
+  <div layout="row" flex="100" layout-margin="10" layout-padding="10">
+      <p>
       Schedule an adventure!
-    </p>
+      </p>
+      <br />
+      <br />
 
 <div ng-app="datepicker" ng-controller="UserController">
-    <form action="/events" method="post">
-      <md-content>
+  <form action="/events" method="post">
+    <md-content>
 
+  <!--  <md-datepicker ng-model="myDate" md-placeholder="Enter date" input type="text" name="date" id="date" ></md-datepicker>-->
+    <md-input-container>
+    <label for="date">Date:</label>
+    <input type="date" name="date" id="date" />
 
-        <md-calendar ng-model="date" type ="text" md-placeholder="Enter date"></md-calendar>
-
+    <md-input-container>
     <label for="time">Time:</label>
-    <input type="text" name="time" id="time" />
+    <input type="time" name="time" id="time" />
+    </md-input-container><br />
 
+    <md-input-container>
     <label for="origin">Origin:</label>
     <input type="text" name="origin" id="origin" />
+    </md-input-container><br />
 
+    <md-input-container>
     <label for="destination">Destination:</label>
     <input type="text" name="destination" id="destination" />
+    </md-input-container><br />
 
-    <input type="submit" value="Create Adventure" />
+    <md-button class="md-raised md-accent" input type="submit" value="create">Create!</md-button>
 
     </form>
   </md-content>
+</div>
 </div>

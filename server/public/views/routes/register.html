@@ -1,14 +1,15 @@
 <div ng-controller="UserController">
+  <div layout="row" flex="100" layout-margin="10" layout-padding="10">
 
-    <p>
+    <h1>
       Register your sassy self!
-    </p>
+    </h1>
 
     <form action="/register" method="post">
       <md-input-container>
       <label for="username">User Name:</label>
       <input type="text" name="username" id="username" />
-    </md-input-container><br />
+     </md-input-container><br />
 
       <md-input-container>
       <label for="password">Password:</label>
@@ -30,7 +31,11 @@
       <input type="text" name="email" id="email" />
       </md-input-container><br />
 
-      <<md-button class="md-raised md-accent" input type="submit" value="Register">Register!</md-button>
+      <md-button class="md-raised md-accent" input type="submit" value="Register">Register!</md-button>
 
     </form>
+
+  <img src="/assets/images/sassyfun.jpg" alt="Sassy Fun" style="width:480px;height:360px;" />
+
+</div>
 </div>

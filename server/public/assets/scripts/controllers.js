@@ -7,7 +7,8 @@ myApp.controller('UserController', ['$scope', '$http', 'UserService', function($
   };
 
   userService.getUser();
-  $scope.info = userService.info;
+  $scope.userInfo = userService.userInfo;
+  console.log("getting user info from the user controller");
 
 }]);
 
@@ -22,7 +23,8 @@ myApp.controller('EventController', ['$scope', 'EventService', function($scope, 
    };
 
    eventService.getEvent();
-   $scope.info = eventService.info;
+   $scope.eventInfo = eventService.eventInfo;
+   console.log("getting event info from the event controller")
 
    $scope.showId = function(object){
      console.log(object.id);
