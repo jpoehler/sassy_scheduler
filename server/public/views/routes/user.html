@@ -8,8 +8,8 @@
       <md-list>
       <md-list-item class="md-4-line" ng-repeat="event in eventInfo.response">
         <div class="md-list-item-text">
-          <p>Date: {{ event.date }}</p>
-          <p>Time: {{ event.time }}</p>
+          <p>Date: {{ event.date | date : 'longDate' }}</p>
+          <p>Time: {{ event.time | date : 'h:mm a' }}</p>
           <p>Origin: {{ event.origin }}</p>
           <p>Destination: {{ event.destination }}</p>
         </div>

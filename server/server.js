@@ -33,7 +33,7 @@ app.use('/events', events);
 app.use('/', index);
 
 app.get('/*', function(req, res){
-    var file = req.params[0] || 'views/routes/user.html';
+    var file = req.params[0] || 'views/index.html';
     res.sendFile(path.join(__dirname, '/public/', file));
 });
 
