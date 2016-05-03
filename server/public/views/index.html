@@ -17,6 +17,8 @@
 
   </head>
   <body>
+    <ng-include src="'/views/partials/header.html'"></ng-include>
+    <ng-include src="'/views/partials/nav.html'"></ng-include>
 
     <!-- <main ng-view> -->
 <h1>Sassy Pants Bicycle Riding Collective</h1>
@@ -34,11 +36,14 @@
         <br />
 
         <input type="submit" value="Log In" />
-        <button class="register"><a href="/views/routes/register.html">Register</a></button>
+
+        <button class="register" a href="/#/register">Register</a>
+
       </form>
     </div>
     <br />
     <img src="/assets/images/sassy_pants.jpg" alt="Sassy Pants" style="width:414px;height:320px;" />
     <!-- </main> -->
+    <ng-include src="'/views/partials/footer.html'"></ng-include>
   </body>
 </html>

@@ -2,10 +2,10 @@ var myApp = angular.module('myApp', ['ngRoute', 'ngMaterial', 'ngMessages']);
 
 myApp.config(['$routeProvider', function($routeProvider) {
   $routeProvider.
-    when('/index', {
-    templateUrl: '../views/index.html'
-    // controller: 'UserController'
-    }).
+    // when('/index', {
+    // templateUrl: '../views/index.html'
+    // // controller: 'UserController'
+    // }).
   when('/user', {
     templateUrl: '../views/routes/user.html',
     controller: 'UserController',
