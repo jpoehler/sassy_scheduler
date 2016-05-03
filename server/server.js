@@ -30,7 +30,7 @@ app.use(session({
 app.use('/register', register);
 app.use('/user', user);
 app.use('/events', events);
-app.use('/', index);
+app.use('/index', index);
 
 app.get('/*', function(req, res){
     var file = req.params[0] || 'views/index.html';
