@@ -10,6 +10,10 @@ myApp.controller('UserController', ['$scope', '$http', 'UserService', function($
   $scope.userInfo = userService.userInfo;
   console.log("getting user info from the user controller");
 
+  $scope.redirect = function(){
+    window.location = '#/register.html';
+  };
+
 }]);
 
 myApp.controller('EventController', ['$scope', 'EventService', function($scope, EventService){
@@ -26,8 +30,7 @@ myApp.controller('EventController', ['$scope', 'EventService', function($scope, 
    $scope.eventInfo = eventService.eventInfo;
    console.log("getting event info from the event controller")
 
-   $scope.showId = function(object){
-     console.log(object.id);
-   };
+   //$scope.delete = function() {
+    //$scope.eventInfo.splice($scope.eventInfo.indexOf($scope.eventInfo), 1);
 
 }]);

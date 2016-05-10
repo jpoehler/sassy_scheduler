@@ -10,7 +10,7 @@ var pg = require('pg');
 
 // Handles request for HTML file
 router.get('/', function(req, res, next) {
-    res.sendFile(path.resolve(__dirname, '../public/views/register.html'));
+    res.sendFile(path.resolve(__dirname, '../public/views/register#.html'));
 });
 
 // Handles POST request with new user data
@@ -35,7 +35,7 @@ router.post('/', function(req, res, next) {
             console.log("Error inserting data: ", err);
             next(err);
           } else {
-            res.redirect('/index');
+            res.redirect('/views/userpage.html#/user');
           }
         });
   });

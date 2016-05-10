@@ -1,7 +1,10 @@
 body {
   font-family: Raleway, sans-serif;
 }
-
+img {
+  position: relative;
+  float: left;
+}
 input[type=submit]{
   border: none;
   border-radius: 4px;
