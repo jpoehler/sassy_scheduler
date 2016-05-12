@@ -36,10 +36,10 @@ router.get('/', function(req, res) {
     // check if logged in
     if(req.isAuthenticated()) {
         // send back user object from database
-        res.status(status).send(req.user);
+        res.send(req.user);
     } else {
         // failure best handled on the server. do redirect here.
-        res.status(status).send(false);
+        res.send(false);
     }
 });
 
