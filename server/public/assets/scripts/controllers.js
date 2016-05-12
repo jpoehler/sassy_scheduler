@@ -1,4 +1,4 @@
-myApp.controller('UserController', ['$scope', '$http', 'UserService', function($scope, $http, UserService) {
+myApp.controller('UserController', ['$scope', '$http', '$location', 'UserService', function($scope, $http, UserService) {
   var userObject = {};
   var userService = UserService;
 
@@ -11,7 +11,7 @@ myApp.controller('UserController', ['$scope', '$http', 'UserService', function($
   console.log("getting user info from the user controller");
 
   $scope.redirect = function(){
-    window.location = '#/register.html';
+    $location.path = '#/register.html';
   };
 
 }]);
