@@ -23,7 +23,7 @@ app.use(session({
   secret: 'secret',
   key: 'user',
   resave: 'true',
-  s: 'false',
+  saveUnitialized: 'false',
   cookie: {maxAge: 60000, secure: false}
 }));
 
